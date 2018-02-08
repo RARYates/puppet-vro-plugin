@@ -11,12 +11,12 @@
 # @example
 #   include puppet_vro_plugin::ssh
 class puppet_vro_plugin::ssh (
-  $manage_root_login                        = true,
-  $manage_password_authentication           = true,
-  $manage_challenge_response_authentication = true,
-  $permit_root_login                        = true,
-  $password_authentication                  = true,
-  $challenge_response_authentication        = false,
+  $manage_root_login                        = $puppet_vro_plugin::manage_root_login,
+  $manage_password_authentication           = $puppet_vro_plugin::manage_password_authentication,
+  $manage_challenge_response_authentication = $puppet_vro_plugin::manage_challenge_response_authentication,
+  $permit_root_login                        = $puppet_vro_plugin::permit_root_login,
+  $password_authentication                  = $puppet_vro_plugin::password_authentication,
+  $challenge_response_authentication        = $puppet_vro_plugin::challenge_response_authentication
 ) {
 
   if $manage_root_login == true {
