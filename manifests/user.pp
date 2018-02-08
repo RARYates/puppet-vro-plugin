@@ -7,15 +7,15 @@
 # @example
 #   include puppet_vro_plugin::user
 class puppet_vro_plugin::user (
-  String $vro_plugin_user   = $puppet_vro_plugin::plugin_user,
-  String $vro_password      = $puppet_vro_plugin::password,
+  String $plugin_user   = $puppet_vro_plugin::plugin_user,
+  String $password      = $puppet_vro_plugin::password,
 ) {
 
   $password_hash = pw_hash($password, 6)
 
   $ruby_mk_vro_plugin_user = epp('vro_plugin_user/create_user_role.rb.epp', {
-    'username'    => $vro_plugin_user,
-    'password'    => $vro_password,
+    'username'    => $plugin_user,
+    'password'    => $password,
     'rolename'    => 'VRO Plugin User',
     'touchfile'   => '/opt/puppetlabs/puppet/cache/vro_plugin_user_created',
     'permissions' => [
@@ -33,7 +33,7 @@ class puppet_vro_plugin::user (
 
 ##Create system user.
 
-  user { $vro_plugin_user:
+  user { $plugin_user:
     ensure     => present,
     shell      => '/bin/bash',
     password   => $password_hash,

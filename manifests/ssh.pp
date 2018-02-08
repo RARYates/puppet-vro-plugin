@@ -28,15 +28,15 @@ class puppet_vro_plugin::ssh (
 
   if $manage_password_authentication == true {
     sshd_config { 'PasswordAuthentication':
-      ensure    => present,
-      value     => bool2str($password_authentication, 'yes', 'no'),
+      ensure => present,
+      value  => bool2str($password_authentication, 'yes', 'no'),
     }
   }
 
   if $manage_challenge_response_authentication == true {
     sshd_config { 'ChallengeResponseAuthentication':
-      ensure    => present,
-      value     => bool2str($challenge_response_authentication, 'yes', 'no'),
+      ensure => present,
+      value  => bool2str($challenge_response_authentication, 'yes', 'no'),
     }
   }
 

@@ -9,7 +9,7 @@
 #
 # @example
 #   include puppet_vro_plugin::autosign_psk
-class puppet_vro_plugin::autosign_psk {
+class puppet_vro_plugin::autosign_psk (
   String $shared_secret = $puppet_vro_plugin::autosign_shared_secret,
 ) {
 
