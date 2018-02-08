@@ -9,6 +9,7 @@
 class puppet_vro_plugin (
   Optional[String] $autosign_shared_secret,
   String           $plugin_password,
+  String           $plugin_user                              = 'vro-plugin-user',
   Boolean          $manage_ssh                               = false,
   Boolean          $manage_sudo                              = false,
   Boolean          $manage_root_login                        = true,
@@ -17,7 +18,6 @@ class puppet_vro_plugin (
   Boolean          $permit_root_login                        = true,
   Boolean          $password_authentication                  = true,
   Boolean          $challenge_response_authentication        = false,
-  String           $plugin_user                              = 'vro-plugin-user',
 ) {
 
   include puppet_vro_plugin::user
